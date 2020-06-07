@@ -1,3 +1,4 @@
+package ch.jh.maturarbeit.mandelbrot;
 
 public class Point {
 	private Double x;

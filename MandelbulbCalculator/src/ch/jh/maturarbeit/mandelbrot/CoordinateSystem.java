@@ -1,3 +1,4 @@
+package ch.jh.maturarbeit.mandelbrot;
 public class CoordinateSystem {
 	private int maxX;
 	private int maxY;

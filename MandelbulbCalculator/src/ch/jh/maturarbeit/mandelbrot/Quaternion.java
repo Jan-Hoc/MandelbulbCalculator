@@ -1,3 +1,4 @@
+package ch.jh.maturarbeit.mandelbrot;
 import java.lang.Math;
 
 public class Quaternion { //Für die benötigten Rechenoperationen mit Quaternionen
