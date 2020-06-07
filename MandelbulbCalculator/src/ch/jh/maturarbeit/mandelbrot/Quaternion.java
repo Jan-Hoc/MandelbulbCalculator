@@ -1,4 +1,5 @@
 package ch.jh.maturarbeit.mandelbrot;
+
 import java.lang.Math;
 
 public class Quaternion { //Für die benötigten Rechenoperationen mit Quaternionen
@@ -47,15 +48,6 @@ public class Quaternion { //Für die benötigten Rechenoperationen mit Quaternio
 	
 	public void printQuaternion() {//Funktion um Quaternion auszudrucken (zu Testzwecken)
 		System.out.println(x0 + " + " + x1 + "i + " + x2 + "j + " + x3 + "k");
-	}
-	
-	public static void main(String[] args) {
-		Quaternion a = new Quaternion(2.00, 2.00, 2.00, 2.00);
-		Quaternion b = new Quaternion(4.00, 3.00, 0.00, 0.00);
-		
-		b.potentiate(2).printQuaternion();
-		b.mult(b).printQuaternion();
-		b.printQuaternion();
 	}
 
 	public Double getX0() {//Getters und Setters für die Variabeln

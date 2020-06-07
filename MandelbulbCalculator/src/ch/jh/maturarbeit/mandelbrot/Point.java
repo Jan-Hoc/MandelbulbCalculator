@@ -5,20 +5,25 @@ public class Point {
 	private Double y;
 	private Double z;
 	
-	private Boolean partOfMandelbulb = false;
+	private Boolean partOfMandelbrot = false;
 	
 	public Point(Double x, Double y, Double z) { //Punkt mit Koordinaten x, y und z in 3D-Koordinatensystem. partOfMandelbulb sagt aus ob es Tell der Menge ist. 
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
-
-	public Boolean getPartOfMandelbulb() {//Getters und Setters für Variabeln
-		return partOfMandelbulb;
+	
+	public Point copy() {
+		Point p = new Point(this.getX(), this.getY(), this.getZ());
+		return p;
 	}
 
-	public void setPartOfMandelbulb(Boolean partOfMandelbulb) {
-		this.partOfMandelbulb = partOfMandelbulb;
+	public Boolean getPartOfMandelbrot() {//Getters und Setters für Variabeln
+		return partOfMandelbrot;
+	}
+
+	public void setPartOfMandelbrot(Boolean partOfMandelbulb) {
+		this.partOfMandelbrot = partOfMandelbulb;
 	}
 
 	public Double getX() {
