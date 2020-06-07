@@ -1,56 +1,92 @@
 import java.lang.Math;
 
-public class Quaternion {
+public class Quaternion { //Für die benötigten Rechenoperationen mit Quaternionen
 
 	private Double x0;
 	private Double x1;
 	private Double x2;
 	private Double x3;
 	
-	public Quaternion (Double x0, Double x1, Double x2, Double x3) {
+	public Quaternion (Double x0, Double x1, Double x2, Double x3) { //Die Quaternion ist folgendermassen aufgebaut: x0 + x1*i + x2*j + x3*k
 		this.x0 = x0;
 		this.x1 = x1;
 		this.x2 = x2;
 		this.x3 = x3;
 	}
 	
-	public Quaternion add (Quaternion b) {
-		Quaternion a = this;
-		Double x0 = a.x0 + b.x0;
-		Double x1 = a.x1 + b.x1;
-		Double x2 = a.x2 + b.x2;
-		Double x3 = a.x3 + b.x3;
+	public Quaternion add (Quaternion a) { //Funktion um Quaternion mit a zu addieren
+		Double x0 = this.x0 + a.x0;
+		Double x1 = this.x1 + a.x1;
+		Double x2 = this.x2 + a.x2;
+		Double x3 = this.x3 + a.x3;
 		return new Quaternion (x0, x1, x2, x3);
 	}
 	
-	public Quaternion mult (Quaternion b) {
-		Quaternion a = this;
-		Double x0 = a.x0 * b.x0 - a.x1 * b.x1 - a.x2 * b.x2 - a.x3 * b.x3;
-		Double x1 = a.x0 * b.x1 + a.x1 * b.x0 + a.x2 * b.x3 - a.x3 * b.x2;
-		Double x2 = a.x0 * b.x2 - a.x1 * b.x3 + a.x2 * b.x0 + a.x3 * b.x1;
-		Double x3 = a.x0 * b.x3 + a.x1 * b.x2 - a.x2 * b.x1 + a.x3 * b.x0;
+	public Quaternion mult (Quaternion a) { //Funktion um Quaternion mit a zu multiplizieren
+		Double x0 = this.x0 * a.x0 - this.x1 * a.x1 - this.x2 * a.x2 - this.x3 * a.x3;
+		Double x1 = this.x0 * a.x1 + this.x1 * a.x0 + this.x2 * a.x3 - this.x3 * a.x2;
+		Double x2 = this.x0 * a.x2 - this.x1 * a.x3 + this.x2 * a.x0 + this.x3 * a.x1;
+		Double x3 = this.x0 * a.x3 + this.x1 * a.x2 - this.x2 * a.x1 + this.x3 * a.x0;
 		return new Quaternion(x0, x1, x2, x3);
 	}
 	
-	public Quaternion potentiate (int p) {
+	public Quaternion potentiate (int n) { //Funktion um Quaternion mit Faktor n zu potenzieren
 		Quaternion r = new Quaternion (this.x0, this.x1, this.x2, this.x3);
-		for(int i = 0; i < p - 1; i++) {
+		for(int i = 1; i < n; i++) {
 			r = r.mult(this);
 		}
 		return r;
 		
 	}
-	public void printQuaternion() {
+	
+	public Double norm() {//Funktion um den Betrag einer Quaternion zu erhalten
+		Double norm = Math.sqrt(Math.pow(x0, 2) + Math.pow(x1, 2) + Math.pow(x2,  2) + Math.pow(x3, 2));
+		return norm;
+	}
+	
+	public void printQuaternion() {//Funktion um Quaternion auszudrucken (zu Testzwecken)
 		System.out.println(x0 + " + " + x1 + "i + " + x2 + "j + " + x3 + "k");
 	}
 	
 	public static void main(String[] args) {
-		Quaternion test = new Quaternion(1.00, 2.00, 3.00, 4.00);
-		Quaternion b = new Quaternion(4.00, 3.00, 2.00, 1.00);
-		test.potentiate(2).printQuaternion();
-		test.mult(test).printQuaternion();
-		test.printQuaternion();
+		Quaternion a = new Quaternion(2.00, 2.00, 2.00, 2.00);
+		Quaternion b = new Quaternion(4.00, 3.00, 0.00, 0.00);
+		
+		b.potentiate(2).printQuaternion();
+		b.mult(b).printQuaternion();
+		b.printQuaternion();
+	}
 
+	public Double getX0() {//Getters und Setters für die Variabeln
+		return x0;
+	}
+
+	public void setX0(Double x0) {
+		this.x0 = x0;
+	}
+
+	public Double getX1() {
+		return x1;
+	}
+
+	public void setX1(Double x1) {
+		this.x1 = x1;
+	}
+
+	public Double getX2() {
+		return x2;
+	}
+
+	public void setX2(Double x2) {
+		this.x2 = x2;
+	}
+
+	public Double getX3() {
+		return x3;
+	}
+
+	public void setX3(Double x3) {
+		this.x3 = x3;
 	}
 
 }
