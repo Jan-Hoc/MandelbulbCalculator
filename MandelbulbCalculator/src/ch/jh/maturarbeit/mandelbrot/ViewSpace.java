@@ -10,8 +10,8 @@ public class ViewSpace {
 	private int res;
 	private Double increment;
 	private Mandelbrot mandelbrot;
-	private Double max; //Maximale Ausdehnun des Koordinatensystems ins Negative und Nositive.
-	ArrayList<Point> partOfMandelbrot = new ArrayList<Point>(); // Speichert alle Punkte di zur Menge gehören
+	private Double max; //Maximale Ausdehnung des Koordinatensystems ins Negative und Positive fuer alle Achsen.
+	ArrayList<Point> partOfMandelbrot = new ArrayList<Point>(); // Speichert alle Punkte di zur Menge gehoeren
 
 	public ViewSpace(int res, Double max) {
 		this.res = res;
@@ -21,23 +21,20 @@ public class ViewSpace {
 	}
 
 	public static void main(String[] args) throws IOException {
-		ViewSpace viewSpace = new ViewSpace(1000, 2.00);
-		Point p = new Point(0.00, 0.00, 0.00); //Punkt der berechnet werden soll
-		
-		FileWriter writer = new FileWriter("/Users/jan/Desktop/points");
+		ViewSpace viewSpace = new ViewSpace(5000, 2.00);		
+		FileWriter writer = new FileWriter("C:\\Users\\janho\\OneDrive\\Desktop\\points.txt");
 		PrintWriter print_line = new PrintWriter(writer);
 		
 
 		for (int i = 0; i <= viewSpace.getRes(); i++) {//Y-Koordinaten im 3D-Koordinatensystem (Displaykoordinaten X)
-			p.setY(i * viewSpace.getIncrement() - viewSpace.getMax());
 			System.out.println(i);
 			for (int j = 0; j <= viewSpace.getRes(); j++) {//Z-Koordinaten im 3D-Koordinatensystem (Displaykoordinaten Y)
-				p.setZ(j * viewSpace.getIncrement() - viewSpace.getMax());
 				
 				for (int k = 0; k <= viewSpace.getRes(); k++) {//X-Koordinaten im 3D-Koordinatensystem 
-					p.setX(k * viewSpace.getIncrement() - viewSpace.getMax());
+					Point p = new Point(k * viewSpace.getIncrement() - viewSpace.getMax(), i * viewSpace.getIncrement() - viewSpace.getMax(), j * viewSpace.getIncrement() - viewSpace.getMax());
 					viewSpace.mandelbrot.partOfMandelbrot(p, 100); //Anzahl Iterationen hier einstellen
-					if(p.getPartOfMandelbrot()) { //Wenn p zur Menge gehört, dann wird es zur Liste hinzugefügt. Es geht zum nächsten Pixel (nicht sichtbare Pxel werden nicht berechnet um Rechenzeit zu verringern)
+					
+					if(p.getPartOfMandelbrot()) { //Wenn p zur Menge gehoert, dann wird es zur Liste hinzugefuegt. Es geht zum naechsten Pixel (nicht sichtbare Pixel werden nicht berechnet um Rechenzeit zu verringern)
 						viewSpace.partOfMandelbrot.add(p.copy());
 						print_line.println(p.getX().toString() + " " + p.getY().toString() + " " + p.getZ().toString());
 						break;

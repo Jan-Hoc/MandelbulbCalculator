@@ -2,7 +2,7 @@ package ch.jh.maturarbeit.mandelbrot;
 
 import java.lang.Math;
 
-public class Quaternion { //Für die benötigten Rechenoperationen mit Quaternionen
+public class Quaternion { //Für die benoetigten Rechenoperationen mit Quaternionen
 
 	private Double x0;
 	private Double x1;
@@ -50,7 +50,7 @@ public class Quaternion { //Für die benötigten Rechenoperationen mit Quaternio
 		System.out.println(x0 + " + " + x1 + "i + " + x2 + "j + " + x3 + "k");
 	}
 
-	public Double getX0() {//Getters und Setters für die Variabeln
+	public Double getX0() {//Getters und Setters fuer die Variabeln
 		return x0;
 	}
 

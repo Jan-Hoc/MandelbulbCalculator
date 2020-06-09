@@ -18,7 +18,7 @@ public class Point {
 		return p;
 	}
 
-	public Boolean getPartOfMandelbrot() {//Getters und Setters für Variabeln
+	public Boolean getPartOfMandelbrot() {//Getters und Setters fuer die Variabeln
 		return partOfMandelbrot;
 	}
 
