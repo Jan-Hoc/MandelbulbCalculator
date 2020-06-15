@@ -12,11 +12,6 @@ public class Point {
 		this.y = y;
 		this.z = z;
 	}
-	
-	public Point copy() {
-		Point p = new Point(this.getX(), this.getY(), this.getZ());
-		return p;
-	}
 
 	public Boolean getPartOfMandelbrot() {//Getters und Setters fuer die Variabeln
 		return partOfMandelbrot;

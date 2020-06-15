@@ -20,7 +20,7 @@ public class ViewSpace {
 
 	public static void main(String[] args) throws IOException {
 		ViewSpace viewSpace = new ViewSpace(1000, 2.00);		
-		FileWriter writer = new FileWriter("C:\\Users\\janho\\OneDrive\\Dokumente\\Schule\\Maturarbeit\\Punktwolken\\White\\White_2.2.txt");
+		FileWriter writer = new FileWriter("C:\\Users\\janho\\OneDrive\\Dokumente\\Schule\\Maturarbeit\\Punktwolken\\White\\White_2.4.txt");//Dateipfad wo Text-Datei für Meshlab gespeichert werden soll
 		PrintWriter print_line = new PrintWriter(writer);
 		
 
@@ -32,9 +32,8 @@ public class ViewSpace {
 					Point p = new Point(k * viewSpace.getIncrement() - viewSpace.getMax(), i * viewSpace.getIncrement() - viewSpace.getMax(), j * viewSpace.getIncrement() - viewSpace.getMax());
 					viewSpace.mandelbrot.whiteMandelbrot(p, 100); //Anzahl Iterationen hier einstellen
 					
-					if(p.getPartOfMandelbrot()) { //Wenn p zur Menge gehoert, dann wird es zur Liste hinzugefuegt. Es geht zum naechsten Pixel (nicht sichtbare Pixel werden nicht berechnet um Rechenzeit zu verringern)
-						print_line.println(p.getX().toString() + " " + p.getY().toString() + " " + p.getZ().toString());
-						//break;
+					if(p.getPartOfMandelbrot()) { //Wenn p zur Menge gehoert, dann wird es zur Liste hinzugefuegt
+						print_line.println(p.getX().toString() + ";" + p.getY().toString() + ";" + p.getZ().toString());
 					}
 				}
 			}
@@ -44,7 +43,7 @@ public class ViewSpace {
 		print_line.close();
 	}
 
-	public int getRes() { //Getters und Setters fÃ¼r Variabeln
+	public int getRes() { //Getters und Setters fuer Variabeln
 		return res;
 	}
 
