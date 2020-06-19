@@ -7,11 +7,12 @@ import java.math.BigDecimal;
 import java.math.RoundingMode;
 
 public class ViewSpace {
-
+	//Anzahl Zwischenschritte im Koordinatensystem
 	private int res;
 	private Double increment;
 	private Mandelbrot mandelbrot;
-	private Double max; //Maximale Ausdehnung des Koordinatensystems ins Negative und Positive fuer alle Achsen.
+	//Maximale Ausdehnung des Koordinatensystems ins Negative und Positive fuer alle Achsen
+	private Double max; 
 
 	public ViewSpace(int res, Double max) {
 		this.res = res;
@@ -22,19 +23,22 @@ public class ViewSpace {
 
 	public static void main(String[] args) throws IOException {
 		ViewSpace viewSpace = new ViewSpace(2000, 2.00);		
-		FileWriter writer = new FileWriter("C:\\Users\\janho\\OneDrive\\Dokumente\\Schule\\Maturarbeit\\Punktwolken\\Quaternion\\Quaternion_2.1.txt");//Dateipfad wo Text-Datei für Meshlab gespeichert werden soll
+		//Dateipfad wo Text-Datei für Meshlab gespeichert werden soll
+		FileWriter writer = new FileWriter("C:\\Users\\janho\\OneDrive\\Dokumente\\Schule\\Maturarbeit\\Punktwolken\\Quaternion\\Quaternion_2.1.txt");
 		PrintWriter print_line = new PrintWriter(writer);
 		
-
-		for (int i = 0; i <= viewSpace.getRes(); i++) {//Y-Koordinaten im 3D-Koordinatensystem (Displaykoordinaten X)
+		//Y-Koordinaten im 3D-Koordinatensystem (Displaykoordinaten X)
+		for (int i = 0; i <= viewSpace.getRes(); i++) {
 			System.out.println(i);
-			for (int j = 0; j <= viewSpace.getRes(); j++) {//Z-Koordinaten im 3D-Koordinatensystem (Displaykoordinaten Y)
-				
-				for (int k = 0; k <= viewSpace.getRes(); k++) {//X-Koordinaten im 3D-Koordinatensystem 
+			//Z-Koordinaten im 3D-Koordinatensystem (Displaykoordinaten Y)
+			for (int j = 0; j <= viewSpace.getRes(); j++) {
+				//X-Koordinaten im 3D-Koordinatensystem 
+				for (int k = 0; k <= viewSpace.getRes(); k++) {
 					Point p = new Point(k * viewSpace.getIncrement() - viewSpace.getMax(), i * viewSpace.getIncrement() - viewSpace.getMax(), j * viewSpace.getIncrement() - viewSpace.getMax());
-					viewSpace.mandelbrot.quaternionMandelbrot(p, 100); //Anzahl Iterationen hier einstellen
-					
-					if(p.getPartOfMandelbrot()) { //Wenn p zur Menge gehoert, dann wird es zur Liste hinzugefuegt
+					//Anzahl Iterationen hier einstellen
+					viewSpace.mandelbrot.quaternionMandelbrot(p, 100); 
+					//Wenn p zur Menge gehoert, dann wird es zur Liste hinzugefuegt
+					if(p.getPartOfMandelbrot()) { 
 						print_line.println(Double.toString(p.getX()) + ";" + Double.toString(p.getY()) + ";" + Double.toString(p.getZ()) + ";155;255;51");
 						break;
 					}
@@ -45,8 +49,8 @@ public class ViewSpace {
 		writer.close();
 		print_line.close();
 	}
-	
-	public int getRes() { //Getters und Setters fuer Variabeln
+	//Getters und Setters fuer Variabeln (fuer alle Variablen auto-generiert)
+	public int getRes() { 
 		return res;
 	}
 

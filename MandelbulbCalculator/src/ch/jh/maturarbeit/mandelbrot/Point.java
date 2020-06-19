@@ -6,14 +6,14 @@ public class Point {
 	private Double z;
 	
 	private Boolean partOfMandelbrot = false;
-	
-	public Point(Double x, Double y, Double z) { //Punkt mit Koordinaten x, y und z in 3D-Koordinatensystem. partOfMandelbulb sagt aus ob es Tell der Menge ist. 
+	//Punkt mit Koordinaten x, y und z in 3D-Koordinatensystem. partOfMandelbulb sagt aus ob es Tell der Menge ist. 
+	public Point(Double x, Double y, Double z) {
 		this.x = x;
 		this.y = y;
 		this.z = z;
 	}
-
-	public Boolean getPartOfMandelbrot() {//Getters und Setters fuer die Variabeln
+	//Getters und Setters fuer Variabeln (fuer alle Variablen auto-generiert)
+	public Boolean getPartOfMandelbrot() {
 		return partOfMandelbrot;
 	}
 
