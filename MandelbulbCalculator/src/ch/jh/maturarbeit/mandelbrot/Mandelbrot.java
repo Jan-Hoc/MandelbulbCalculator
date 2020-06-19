@@ -2,8 +2,8 @@ package ch.jh.maturarbeit.mandelbrot;
 
 public class Mandelbrot {
 
-	public void quaternionMandelbrot(Point p, int iterations) { //Berechnet ob Punkt zur Menge gehoert und verändert dann partOfManelbrot von dem Punkt
-		Quaternion quaternion = new Quaternion(0.00, p.getX(), p.getY(), p.getZ()); //Querschnitt der Quaterionen mit x0 = 0 (also Imaginärraum),mit Koordinaten des zu testenden Punktes
+	public void quaternionMandelbrot(Point p, int iterations) { //Berechnet ob Punkt zur Menge gehoert und veraendert dann partOfManelbrot von dem Punkt
+		Quaternion quaternion = new Quaternion(0.00, p.getX(), p.getY(), p.getZ()); //Querschnitt der Quaterionen mit x0 = 0 (also Imaginaerraum),mit Koordinaten des zu testenden Punktes
 		Quaternion start = new Quaternion (0.00, 0.00, 0.00, 0.00); //Quaternion zum rechnen
 		int counter = 0; //Zaehlt Anzahl Iterationen
 		for(int i = 0; i < iterations; i++) {
@@ -34,7 +34,7 @@ public class Mandelbrot {
 		for(int i = 0; i < iterations; i++) {
 			counter++; 
 			
-			newX = p.getX() + Math.pow(oldX, 2) - Math.pow(oldY, 2) - Math.pow(oldZ, 2);
+			newX = p.getX() + Math.pow(oldX, 2) - Math.pow(oldY, 2) - Math.pow(oldZ, 2); //Neue Punkte berechnen nach Methode von White
 			newY = p.getY() + ((4 * oldX * oldY * oldZ) / (Math.sqrt(Math.pow(oldY, 2) + Math.pow(oldZ, 2))));
 			newZ = p.getZ() + (2 * oldX * (-1 * Math.pow(oldY, 2) + Math.pow(oldZ, 2)) / (Math.sqrt(Math.pow(oldY, 2) + Math.pow(oldZ, 2))));
 			
