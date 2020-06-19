@@ -10,7 +10,7 @@ public class Mandelbrot {
 			counter++;
 			start = start.potentiate(2);//Variationen in der Potenz koennen hier angepasst werden
 			start = start.add(quaternion);
-			if(start.norm() >= 2) {
+			if(start.norm() >= 2) {//Wenn die Punke eine Kugel mit dem Radius von zwei verlassen, kehren sie auch nicht zurück, also kann hier der Loop unterbrochen werden
 				break;
 			}
 		}
@@ -42,7 +42,7 @@ public class Mandelbrot {
 			oldY = Double.valueOf(newY);
 			oldZ = Double.valueOf(newZ);
 			
-			if(Math.sqrt(Math.pow(oldX, 2) + Math.pow(oldY, 2) + Math.pow(oldZ, 2)) >= 2) {
+			if(Math.sqrt(Math.pow(oldX, 2) + Math.pow(oldY, 2) + Math.pow(oldZ, 2)) >= 2) {//Wenn die Punke eine Kugel mit dem Radius von zwei verlassen, kehren sie auch nicht zurück, also kann hier der Loop unterbrochen werden
 				break;
 			}
 		}
