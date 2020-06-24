@@ -24,30 +24,30 @@ public class Mandelbrot {
 			p.setPartOfMandelbrot(true);
 		}
 	}
+
 	
-	public void whiteMandelbrot(Point p, int iterations) {
-		Double oldX = p.getX();
-		Double oldY = p.getY();
-		Double oldZ = p.getZ();
+	public void whiteMandelbrot(Point p, int iterations, int power) {
+		Double x = 0.00;
+		Double y = 0.00;
+		Double z = 0.00;
 		
-		Double newX = p.getX();
-		Double newY = p.getY();
-		Double newZ = p.getZ();
+		Double r;
+		Double theta;
+		Double phi;
 		
 		int counter = 0;
 		
 		for(int i = 0; i < iterations; i++) {
-			counter++; 
-			//Neue Punkte berechnen nach Methode von White
-			newX = p.getX() + Math.pow(oldX, 2) - Math.pow(oldY, 2) - Math.pow(oldZ, 2); 
-			newY = p.getY() + ((4 * oldX * oldY * oldZ) / (Math.sqrt(Math.pow(oldY, 2) + Math.pow(oldZ, 2))));
-			newZ = p.getZ() + (2 * oldX * (-1 * Math.pow(oldY, 2) + Math.pow(oldZ, 2)) / (Math.sqrt(Math.pow(oldY, 2) + Math.pow(oldZ, 2))));
+			counter ++;
+			r = Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2));
+			theta = Math.atan2(Math.sqrt(Math.pow(x, 2) + Math.pow(y, 2)), z);
+			phi = Math.atan2(y, x);
 			
-			oldX = Double.valueOf(newX);
-			oldY = Double.valueOf(newY);
-			oldZ = Double.valueOf(newZ);
+			x = p.getX() + Math.pow(r, power) * Math.sin(theta * power + 0.5 * Math.PI) * Math.cos(phi * power + Math.PI);
+			y = p.getY() + Math.pow(r, power) * Math.sin(theta * power + 0.5 * Math.PI) * Math.sin(phi * power + Math.PI);
+			z = p.getZ() + Math.pow(r, power) * Math.cos(theta * power + 0.5 * Math.PI);
 			//Wenn die Punke eine Kugel mit dem Radius von zwei verlassen, kehren sie auch nicht zurück, also kann hier der Loop unterbrochen werden
-			if(Math.sqrt(Math.pow(oldX, 2) + Math.pow(oldY, 2) + Math.pow(oldZ, 2)) >= 2) {
+			if(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2) > 4) {
 				break;
 			}
 		}
