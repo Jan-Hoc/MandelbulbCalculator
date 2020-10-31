@@ -1,3 +1,4 @@
+
 package ch.jh.maturarbeit.mandelbrot;
 
 public class Mandelbrot {
@@ -45,7 +46,7 @@ public class Mandelbrot {
 			x = p.getX() + Math.pow(r, power) * Math.sin(theta * power + 0.5 * Math.PI) * Math.cos(phi * power + Math.PI);
 			y = p.getY() + Math.pow(r, power) * Math.sin(theta * power + 0.5 * Math.PI) * Math.sin(phi * power + Math.PI);
 			z = p.getZ() + Math.pow(r, power) * Math.cos(theta * power + 0.5 * Math.PI);
-			//Wenn die Punke eine Kugel mit dem Radius von zwei verlassen, kehren sie auch nicht zurück, also kann hier der Loop unterbrochen werden
+			//Wenn die Punke eine Kugel mit dem Radius von zwei verlassen, kehren sie auch nicht zurueck, also kann hier der Loop unterbrochen werden
 			if(Math.pow(x, 2) + Math.pow(y, 2) + Math.pow(z, 2) > 4) {
 				break;
 			}

@@ -22,9 +22,9 @@ public class ViewSpace {
 	}
 
 	public static void main(String[] args) throws IOException {
-		ViewSpace viewSpace = new ViewSpace(3000, 5.00);		
+		ViewSpace viewSpace = new ViewSpace(2000, 3.00);		
 		//Dateipfad wo Text-Datei für Meshlab gespeichert werden soll
-		FileWriter writer = new FileWriter("C:\\Users\\janho\\OneDrive\\Dokumente\\Schule\\Maturarbeit\\Punktwolken\\White\\White_20.1(2xPhi + Pi, 2xTheta + 0.5xPi).txt");
+		FileWriter writer = new FileWriter("C:\\Users\\janho\\OneDrive\\Dokumente\\Schule\\Maturarbeit\\Punktwolken\\Quaternion\\Quaternion_2.txt");
 		PrintWriter print_line = new PrintWriter(writer);
 		
 		//Y-Koordinaten im 3D-Koordinatensystem (Displaykoordinaten X)
@@ -36,10 +36,10 @@ public class ViewSpace {
 				for (int k = 0; k <= viewSpace.getRes(); k++) {
 					Point p = new Point(k * viewSpace.getIncrement() - viewSpace.getMax(), i * viewSpace.getIncrement() - viewSpace.getMax(), j * viewSpace.getIncrement() - viewSpace.getMax());
 					//Anzahl Iterationen hier einstellen
-					viewSpace.mandelbrot.whiteMandelbrot(p, 100, 20); 
+					viewSpace.mandelbrot.quaternionMandelbrot(p, 100, 2); 
 					//Wenn p zur Menge gehoert, dann wird es zur Liste hinzugefuegt
 					if(p.getPartOfMandelbrot()) { 
-						print_line.println(Double.toString(p.getX()) + ";" + Double.toString(p.getY()) + ";" + Double.toString(p.getZ()) + ";155;255;51");
+						print_line.println(Double.toString(p.getX()) + ";" + Double.toString(p.getY()) + ";" + Double.toString(p.getZ()));
 						
 					}
 				}
@@ -74,4 +74,3 @@ public class ViewSpace {
 		this.max = max;
 	}
 }
-
