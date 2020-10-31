@@ -5,7 +5,8 @@ public class Point {
 	private Double y;
 	private Double z;
 	
-	private Boolean partOfMandelbrot = false; 
+	private Boolean partOfMandelbrot = false;
+	
 	//Punkt mit Koordinaten x, y und z in 3D-Koordinatensystem. partOfMandelbulb sagt aus ob es Tell der Menge ist. 
 	public Point(Double x, Double y, Double z) {
 		this.x = x;
