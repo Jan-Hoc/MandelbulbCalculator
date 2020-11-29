@@ -23,7 +23,7 @@ public class ViewSpace {
 
 	public static void main(String[] args) throws IOException {
 		ViewSpace viewSpace = new ViewSpace(2000, 3.00);		
-		//Dateipfad wo Text-Datei für Meshlab gespeichert werden soll
+		//Dateipfad wo Textdatei fÃ¼r MeshLab gespeichert werden soll
 		FileWriter writer = new FileWriter("C:\\Users\\janho\\OneDrive\\Dokumente\\Schule\\Maturarbeit\\Punktwolken\\Quaternion\\Quaternion_2.txt");
 		PrintWriter print_line = new PrintWriter(writer);
 		
@@ -49,7 +49,7 @@ public class ViewSpace {
 		writer.close();
 		print_line.close();
 	}
-	//Getters und Setters fuer Variabeln (fuer alle Variablen auto-generiert)
+	//Getters und Setters fuer Variablen (fuer alle Variablen auto-generiert)
 	public int getRes() { 
 		return res;
 	}
