@@ -4,7 +4,7 @@ package ch.jh.maturarbeit.mandelbrot;
 public class Mandelbrot {
 	//Berechnet ob Punkt zur Menge gehoert und veraendert dann partOfManelbrot von dem Punkt
 	public void quaternionMandelbrot(Point p, int iterations, int power) {
-		//Querschnitt der Quaterionen mit x0 = 0 (also Imaginaerraum),mit Koordinaten des zu testenden Punktes
+		//Querschnitt der Quaterionen mit x0 = 0 (also Imaginaerraum),mit Koordinaten des zu testenden Punktes. Ebenfalls kann eine andere Komponente den Wert 0 erhalten.
 		Quaternion quaternion = new Quaternion(0.00, p.getX(), p.getY(), p.getZ()); 
 		//Quaternion zum rechnen
 		Quaternion start = new Quaternion (0.00, 0.00, 0.00, 0.00); 
@@ -14,7 +14,7 @@ public class Mandelbrot {
 			counter++;
 			start = start.potentiate(power);
 			start = start.add(quaternion);
-			//Wenn die Punke eine Kugel mit dem Radius von zwei verlassen, kehren sie auch nicht zurück, also kann hier der Loop unterbrochen werden
+			//Wenn die Punke eine Kugel mit dem Radius von zwei verlassen, kehren sie auch nicht zurÃ¼ck, also kann hier der Loop unterbrochen werden
 			if(start.norm() >= 2) {
 				break;
 			}
