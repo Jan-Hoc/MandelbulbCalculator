@@ -49,7 +49,7 @@ public class Quaternion {
 	public void printQuaternion() {
 		System.out.println(x0 + " + " + x1 + "i + " + x2 + "j + " + x3 + "k");
 	}
-	//Getters und Setters fuer Variabeln (fuer alle Variablen auto-generiert)
+	//Getters und Setters fuer Variablen (fuer alle Variablen auto-generiert)
 	public Double getX0() {
 		return x0;
 	}
